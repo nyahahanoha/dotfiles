@@ -2,7 +2,7 @@
 #MISE description="Install Homebrew packages defined in Brewfiles and remove packages not listed in it."
 set -euo pipefail
 
-brew_dir="$HOME/.config/brew"
+brew_dir="$HOME/.brew"
 files=(
   "Brewfile.core"
   "Brewfile.gui"
