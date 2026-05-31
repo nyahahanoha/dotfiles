@@ -1,0 +1,8 @@
+[[language]]
+name = "kdl"
+scope = "source.kdl"
+file-types = ["kdl"]
+language-servers = ["kdl-lsp"]
+
+[language-server.kdl-lsp]
+command = "kdl-lsp"

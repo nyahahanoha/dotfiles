@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#MISE description="Set up home-directory symlinks for config-managed dotfiles"
+set -eu
+
+link_dotfile() {
+  src="$HOME/.config/zsh/$1"
+  dst="$HOME/$1"
+
+  if [ ! -e "$src" ]; then
+    echo "missing source: $src" >&2
+    exit 1
+  fi
+
+  if [ -L "$dst" ]; then
+    current="$(readlink "$dst")"
+    if [ "$current" = "$src" ]; then
+      echo "ok: $dst -> $src"
+      return
+    fi
+    echo "refusing to replace symlink: $dst -> $current" >&2
+    exit 1
+  fi
+
+  if [ -e "$dst" ]; then
+    echo "refusing to replace existing file: $dst" >&2
+    exit 1
+  fi
+
+  ln -s "$src" "$dst"
+  echo "linked: $dst -> $src"
+}
+
+link_dotfile ".zshrc"

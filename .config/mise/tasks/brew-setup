@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+#MISE description="Install Homebrew packages defined in Brewfiles and remove packages not listed in it."
+set -euo pipefail
+
+brew_dir="$HOME/.config/brew"
+files=(
+  "Brewfile.core"
+  "Brewfile.gui"
+  "Brewfile.extra"
+)
+
+tmp_brewfile="$(mktemp)"
+cleanup_output="$(mktemp)"
+trap 'rm -f "$tmp_brewfile" "$cleanup_output"' EXIT
+
+for f in "${files[@]}"; do
+  cat "$brew_dir/$f" >> "$tmp_brewfile"
+  printf '\n' >> "$tmp_brewfile"
+done
+
+echo "==> brew bundle install --file=$tmp_brewfile"
+brew bundle install --file="$tmp_brewfile" 2>&1
+
+echo "==> brew bundle cleanup --file=$tmp_brewfile"
+set +e
+brew bundle cleanup --file="$tmp_brewfile" 2>&1 | tee "$cleanup_output"
+cleanup_status="${PIPESTATUS[0]}"
+set -e
+
+if [ "$cleanup_status" -eq 0 ]; then
+  exit 0
+fi
+
+if ! grep -q 'brew bundle cleanup --force' "$cleanup_output"; then
+  exit "$cleanup_status"
+fi
+
+printf 'Remove the packages listed above? [y/N] '
+if ! read -r answer; then
+  answer=""
+fi
+
+case "$answer" in
+  [yY] | [yY][eE][sS])
+    echo "==> brew bundle cleanup --force"
+    brew bundle cleanup --force --file="$tmp_brewfile"
+    ;;
+  *)
+    echo "Skipped Homebrew cleanup."
+    ;;
+esac

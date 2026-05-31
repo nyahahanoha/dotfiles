@@ -1,0 +1,54 @@
+personality = "pragmatic"
+model = "gpt-5.5"
+model_reasoning_effort = "medium"
+
+[projects."/Users/nyahahanoha/Working/tmcit/sotsuken"]
+trust_level = "trusted"
+
+[projects."/Users/nyahahanoha/Testing/codex-mcp"]
+trust_level = "trusted"
+
+[projects."/Users/nyahahanoha/Testing/slide-style"]
+trust_level = "trusted"
+
+[projects."/Users/nyahahanoha"]
+trust_level = "trusted"
+
+[projects."/Users/nyahahanoha/Downloads/vimium-master"]
+trust_level = "trusted"
+
+[projects."/Users/nyahahanoha/Packages/brew"]
+trust_level = "trusted"
+
+[projects."/Users/nyahahanoha/.config/mise"]
+trust_level = "trusted"
+
+[projects."/Users/nyahahanoha/.codex"]
+trust_level = "trusted"
+
+[projects."/Users/nyahahanoha/.config/tmux"]
+trust_level = "trusted"
+
+[projects."/Users/nyahahanoha/.config/zellij"]
+trust_level = "trusted"
+
+[projects."/Users/nyahahanoha/.config"]
+trust_level = "trusted"
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+
+[notice.model_migrations]
+"gpt-5.2" = "gpt-5.4"
+
+[plugins."google-calendar@openai-curated"]
+enabled = true
+
+[plugins."gmail@openai-curated"]
+enabled = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."google-drive@openai-curated"]
+enabled = true

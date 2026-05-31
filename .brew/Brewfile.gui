@@ -1,0 +1,15 @@
+cask "alacritty"
+cask "balenaetcher"
+cask "codex"
+cask "discord"
+cask "font-ibm-plex-math"
+cask "google-chrome"
+cask "hammerspoon"
+cask "orbstack"
+cask "raspberry-pi-imager"
+cask "zoom"
+
+mas "Bitwarden", id: 1352778147
+mas "CrystalFetch", id: 6454431289
+mas "Kindle", id: 302584613
+mas "WireGuard", id: 1451685025

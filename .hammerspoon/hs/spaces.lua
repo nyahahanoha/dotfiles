@@ -1,0 +1,1 @@
+/nix/store/smhfy0n5zrj8bim6lfkg44zk423c31bc-home-manager-files/.hammerspoon/hs/spaces.lua
