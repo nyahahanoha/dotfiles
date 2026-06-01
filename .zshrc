@@ -18,7 +18,7 @@ export PATH="$PATH:/opt/homebrew/opt/libpcap/bin"
 eval "$(mise activate zsh)"
 
 if [ -z "$ZELLIJ" ]; then
-  zellij attach --create default; exit
+  zellij; exit
 fi
 
 alias -- k=kubectl

@@ -13,7 +13,8 @@ keybinds clear-defaults=true {
         bind "k" { Write 27 91 65; }
         bind "j" { Write 27 91 66; }
 
-        bind "s" { EditScrollback; SwitchToMode "locked"; }
+        bind "v" { EditScrollback; SwitchToMode "locked"; }
+        bind "s" { SwitchToMode "scroll"; }
 
         bind "e" { ToggleActiveSyncTab; SwitchToMode "locked"; }
         bind "f" { ToggleFloatingPanes; SwitchToMode "locked"; }
@@ -37,6 +38,12 @@ keybinds clear-defaults=true {
     renametab {
         bind "Esc" "Enter" "Ctrl c" { SwitchToMode "locked"; }
     }
+
+    scroll {
+        bind "Esc" "Enter" "Ctrl c" { SwitchToMode "locked"; }
+        bind "k" { ScrollUp; }
+        bind "j" { ScrollDown; }
+    }
 }
 
 plugins {
@@ -46,6 +53,8 @@ plugins {
 default_mode "locked"
 default_layout "default"
 pane_frames false
+session_serialization false
+pane_viewport_serialization false
 show_startup_tips false
 show_release_notes false
 copy_command "pbcopy"
