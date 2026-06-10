@@ -23,8 +23,8 @@ brew bundle install --file="$tmp_brewfile" 2>&1
 
 echo "==> brew bundle cleanup --file=$tmp_brewfile"
 set +e
-brew bundle cleanup --file="$tmp_brewfile" 2>&1 | tee "$cleanup_output"
-cleanup_status="${PIPESTATUS[0]}"
+brew bundle cleanup --file="$tmp_brewfile" > "$cleanup_output" 2>&1
+cleanup_status="$?"
 set -e
 
 if [ "$cleanup_status" -eq 0 ]; then
@@ -32,10 +32,27 @@ if [ "$cleanup_status" -eq 0 ]; then
 fi
 
 if ! grep -q 'brew bundle cleanup --force' "$cleanup_output"; then
+  cat "$cleanup_output"
   exit "$cleanup_status"
 fi
 
-printf 'Remove the packages listed above? [y/N] '
+echo "Cleanup targets:"
+awk '
+  /^Would (uninstall|untap)/ || /^Would `brew cleanup`:/ {
+    printing = 1
+    print
+    next
+  }
+  /^Run `brew bundle cleanup --force`/ {
+    printing = 0
+    next
+  }
+  printing && NF {
+    print
+  }
+' "$cleanup_output"
+
+printf 'Remove these packages? [y/N] '
 if ! read -r answer; then
   answer=""
 fi
