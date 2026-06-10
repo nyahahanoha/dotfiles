@@ -1,0 +1,90 @@
+onboarding = false
+
+[theme]
+name = "dracula"
+
+[terminal]
+new_cwd = "current"
+
+[update]
+channel = "stable"
+
+[keys]
+prefix = "ctrl+j"
+
+# Prefix-mode actions
+help = "prefix+?"
+settings = "prefix+s"
+detach = "prefix+q"
+reload_config = "prefix+shift+r"
+open_notification_target = "prefix+o"
+workspace_picker = ""
+goto = "prefix+w"
+new_workspace = "prefix+n"
+new_worktree = "prefix+g"
+open_worktree = ""    # optional, unset by default
+remove_worktree = ""  # optional, unset by default; opens confirmation
+rename_workspace = "prefix+r"
+close_workspace = "prefix+d"
+previous_workspace = "prefix+k" # optional, unset by default
+next_workspace = "prefix+j"     # optional, unset by default
+previous_agent = ""     # optional, unset by default
+next_agent = ""         # optional, unset by default
+focus_agent = ""        # optional indexed binding, e.g. "prefix+alt+1..9"
+new_tab = ""
+rename_tab = ""
+previous_tab = ""
+next_tab = ""
+switch_tab = ""
+switch_workspace = ""   # optional indexed binding, e.g. "prefix+shift+1..9"
+close_tab = ""
+rename_pane = ""
+edit_scrollback = "prefix+e"
+focus_pane_left = ""
+focus_pane_down = ""
+focus_pane_up = ""
+focus_pane_right = ""
+cycle_pane_next = "ctrl+o"
+cycle_pane_previous = ""
+last_pane = ""          # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
+split_vertical = "prefix+|"
+split_horizontal = "prefix+minus"
+close_pane = ""
+zoom = ""       # legacy alias: fullscreen
+resize_mode = ""
+toggle_sidebar = "prefix+tab"
+
+navigate_workspace_up = "up"
+navigate_workspace_down = "down"
+navigate_pane_left = "h"      # left arrow always focuses the pane to the left
+navigate_pane_down = "j"
+navigate_pane_up = "k"
+navigate_pane_right = "l"     # right arrow always focuses the pane to the right
+
+[worktrees]
+directory = "~/.herdr/worktrees"
+
+[ui]
+sidebar_width = 26
+
+mouse_capture = true
+
+prompt_new_tab_name = true
+
+[ui.toast]
+delivery = "herdr"
+
+[ui.sound]
+enabled = false
+
+[session]
+resume_agents_on_restore = true
+
+[remote]
+manage_ssh_config = true
+
+[experimental]
+pane_history = true
+
+[advanced]
+scrollback_limit_bytes = 10000000

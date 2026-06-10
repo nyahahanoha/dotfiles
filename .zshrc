@@ -18,7 +18,7 @@ export PATH="$PATH:/opt/homebrew/opt/libpcap/bin"
 eval "$(mise activate zsh)"
 
 if [ -z "$ZELLIJ" ]; then
-  zellij; exit
+  herdr; exit
 fi
 
 alias -- k=kubectl
@@ -36,3 +36,4 @@ else
 fi
 
 source <(kubectl completion zsh)
+
