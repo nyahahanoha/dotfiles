@@ -17,7 +17,7 @@ export PATH="/Library/TeX/texbin:$PATH"
 export PATH="$PATH:/opt/homebrew/opt/libpcap/bin"
 eval "$(mise activate zsh)"
 
-if [ -z "$ZELLIJ" ]; then
+if [ -z "$HERDR_ENV" ]; then
   herdr; exit
 fi
 
@@ -36,4 +36,3 @@ else
 fi
 
 source <(kubectl completion zsh)
-
