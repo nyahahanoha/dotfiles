@@ -1,7 +1,6 @@
 cask "alacritty"
 cask "balenaetcher"
 cask "chatgpt"
-cask "codex"
 cask "discord"
 cask "font-ibm-plex-math"
 cask "google-chrome"
